@@ -1,0 +1,91 @@
+@import url('https://fonts.googleapis.com/css2?family=Anonymous+Pro:wght@400;700&family=VT323&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Anonymous Pro', monospace;
+}
+
+.window {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: #f1f0e4;
+}
+
+.calculator {
+  border-radius: 20px;
+  border: 10px solid #cabb95;
+  width: 400px;
+  background-color: #2a2926;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  padding: 20px;
+}
+
+.screen {
+  border-radius: 5px;
+  background-color: #3d3c39;
+  padding: 10px 15px;
+  margin-bottom: 30px;
+  height: 100px;
+}
+
+.main-display {
+  color: #25e4ae;
+  font-family: 'VT323';
+  text-align: right;
+  font-size: 50px;
+  height:50px
+}
+.sub-display {
+  color: #25e4ae;
+  font-family: 'VT323';
+  text-align: right;
+  font-size: 30px;
+  height:30px
+}
+
+.buttons {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(5, 1fr);
+  gap: 15px;
+  margin-bottom: 10px;
+}
+
+.buttons div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 30px;
+  padding: 10px;
+  border-radius: 5px;
+  font-weight: 700;
+  color: #2a2926;
+}
+
+.number {
+  background-color: rgb(233, 230, 227);
+  border-bottom: 3px solid rgba(0, 0, 0, 0.2);
+}
+
+.tall {
+  grid-row-end: span 2;
+  background-color: #ea8717;
+}
+
+.long {
+  grid-column-end: span 2;
+}
+
+.control {
+  background-color: #cabb95;
+}
+
+.clear {
+  background-color: #d9592a;
+}

@@ -60,7 +60,7 @@ function backspace() {
 
 //Check to see if there's an operator stored
 //Update first value if not, otherwise update the second value
-function storeValues(value){
+function storeValues(value) {
   if (result){clearMemory()};
   if (!operator) {
     firstValue.push(value);
@@ -70,7 +70,7 @@ function storeValues(value){
 };
 
 //Reset all stored values and clear the screen
-function clearMemory () {
+function clearMemory() {
   subDisplay.textContent = "";
   mainDisplay.textContent = "";
   firstValue = [];
@@ -92,7 +92,7 @@ function calculateResult() {
         result = a - b;
         break;
       case "/":
-          if (b == 0){result = "MR.CALC SAYS NO";
+          if (b == 0){result = "MR.CALC SAYS :(";
         } else {
           result = a / b;
         };
@@ -106,8 +106,10 @@ function calculateResult() {
 function updateDisplay(){
   let displayString = "";
   let symbol = "";
+  let equals = ""
+  if(result){equals = "\xa0="};
   if(operatorSymbol){symbol = `\xa0${operatorSymbol}\xa0`};
-  displayString = firstValue.join("") + symbol + secondValue.join("");
+  displayString = firstValue.join("") + symbol + secondValue.join("") + equals;
   subDisplay.textContent = displayString;
   mainDisplay.textContent = result;
 };
@@ -116,7 +118,6 @@ function updateDisplay(){
 window.addEventListener('keydown', keystroke);
 
 function keystroke(e) {
-  console.log(e.key);
   switch(e.key) {
     case "C":
     case "c":
@@ -153,12 +154,12 @@ function keystroke(e) {
   updateDisplay();
 };
 
-function updateOperatorKey(e) {
+function updateOperatorKey(keystroke) {
   //Stops the operator being changed mid sum
   if(operator){return}; 
   //Stops the operator being added if there's no first value
   if(!firstValue[0]){return};
   //Update the operator variables
-  operator = e;
-  operatorSymbol = e;
+  operator = keystroke;
+  operatorSymbol = keystroke;
 };

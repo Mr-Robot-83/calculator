@@ -1,5 +1,21 @@
 @import url('https://fonts.googleapis.com/css2?family=Anonymous+Pro:wght@400;700&family=VT323&display=swap');
 
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap');
+.footer {
+  bottom: 10px;
+  position: absolute;
+  margin-bottom: 10px;
+}
+
+.footer,
+.footer a,
+.footer hover {
+  color: rgba(0, 0, 0, 0.5);
+  font-family: 'Roboto Mono', monospace;
+  font-size: 14px;
+  text-decoration: none;
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -73,7 +89,7 @@
   padding: 10px;
   border-radius: 5px;
   font-weight: 700;
-  color: #2e2e2b;
+  color: #353531;
   border-bottom: 3px solid rgba(0, 0, 0, 0.3);
 }
 

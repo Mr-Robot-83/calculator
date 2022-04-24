@@ -1,2 +1,2 @@
-# calculator
-Calculator assignment for TOP
+# Mr.Calc
+Calculator assignment for The Odin Project

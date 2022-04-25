@@ -16,7 +16,7 @@ let operator = null;
 let operatorSymbol = null;
 
 function buttonClick(e) {
-  let input = covertInput(e)
+  let input = covertInput(e);
   switch(input) {
     case "C":
     case "c":
@@ -61,7 +61,7 @@ function covertInput(e) {
     input = e.target.id;
   };
   return input
-}
+};
 
 function updateOperator(e) {
   let input = covertInput(e);
@@ -69,7 +69,7 @@ function updateOperator(e) {
   //Save the result as the first value, and clear the second
   if(operator && secondValue[0]){
     calculateResult();  
-    if(result === errorMessage){return}
+    if(result === errorMessage){return};
     firstValue = Array.from(String(result));
     secondValue = [];
     result = null;
@@ -91,7 +91,7 @@ function backspace() {
   if(result){clearMemory()};
   if (secondValue[0]) {
     secondValue.pop();
-  } else if (operator) {
+  } else if(operator) {
     operator = null;
     operatorSymbol = null;
   } else {
@@ -158,5 +158,5 @@ function updateDisplay(){
 function checkResult() {
   if(result === errorMessage || firstValue.join("") === errorMessage){
     result = errorMessage;
-  }
-}
+  };
+};

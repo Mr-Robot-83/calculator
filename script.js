@@ -102,7 +102,7 @@ function backspace() {
 //Check to see if there's an operator stored
 //Update first value if not, otherwise update the second value
 function storeValues(value) {
-  if (result){clearMemory()};
+  if (result || result === 0){clearMemory()};
   if (!operator) {
     firstValue.push(value);
     } else {

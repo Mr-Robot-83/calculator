@@ -108,8 +108,10 @@ function backspace() {
 function storeValues(value) {
   if (result || result === 0){clearMemory()};
   if (!operator) {
+    if (value === "." && firstValue.find(decimal => decimal === ".")){return};
     firstValue.push(value);
     } else {
+    if (value === "." && secondValue.find(decimal => decimal === ".")){return};
     secondValue.push(value); 
   };
 };
@@ -127,22 +129,24 @@ function calculateResult() {
   if(firstValue[0] && secondValue[0]){
     let a = parseFloat(firstValue.join(""));
     let b = parseFloat(secondValue.join(""));
+    let num = null;
     switch(operator) {
       case "+":
-        result = a + b;
+        num = a + b;
         break;
       case "-":
-        result = a - b;
+        num = a - b;
         break;
       case "/":
-          if (b == 0){result = errorMessage;
+          if (b == 0){result = errorMessage; return
         } else {
-          result = a / b;
+          num = a / b;
         };
         break;
       case "*":
-        result = a * b;
+        num = a * b;
     };
+    result = parseFloat(num.toFixed(5));
   };
 };
 

@@ -7,6 +7,10 @@ const errorMessage = "MR.CALC SAYS NO!";
 buttons.forEach(button => button.addEventListener('click', buttonClick));
 window.addEventListener('keydown', buttonClick);
 
+//Intro animation
+animateText("WELCOME TO",subDisplay)
+setTimeout(animateText,1000,"MR.CALC", mainDisplay);
+
 //Didn't need to use arrays here but wanted to give it a go.
 let firstValue = [];
 let secondValue = [];
@@ -112,8 +116,6 @@ function storeValues(value) {
 
 //Reset all stored values and clear the screen
 function clearMemory() {
-  subDisplay.textContent = "";
-  mainDisplay.textContent = "";
   firstValue = [];
   secondValue = [];
   result = null;
@@ -160,3 +162,20 @@ function checkResult() {
     result = errorMessage;
   };
 };
+
+//from W3 Schools https://www.w3schools.com/howto/howto_js_typewriter.asp
+
+function animateText(message,display){
+  let i = 0;
+  let txt = message;
+  let speed = 100;
+
+  function typeWriter() {
+    if (i < txt.length) {
+      display.innerHTML += txt.charAt(i);
+      i++;
+      setTimeout(typeWriter, speed);
+    }
+  }
+  typeWriter()
+}

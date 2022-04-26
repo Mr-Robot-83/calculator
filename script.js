@@ -109,14 +109,16 @@ function storeValues(value) {
   if (result || result === 0){clearMemory()};
   if (!operator) {
     if (value === "." && firstValue.find(decimal => decimal === ".")){return};
+    if (value === "." && !firstValue[0]){firstValue[0] = "0"};
     firstValue.push(value);
     } else {
     if (value === "." && secondValue.find(decimal => decimal === ".")){return};
+    if (value === "." && !secondValue[0]){secondValue[0] = "0"};
     secondValue.push(value); 
   };
 };
 
-//Reset all stored values and clear the screen
+//Reset all stored values and clear the screen s
 function clearMemory() {
   firstValue = [];
   secondValue = [];

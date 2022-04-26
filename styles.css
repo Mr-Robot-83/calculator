@@ -1,19 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Anonymous+Pro:wght@400;700&family=VT323&display=swap');
-
-@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap');
-
-.footer {
-  margin-top: 30px;
-}
-
-.footer,
-.footer a,
-.footer hover {
-  color: rgba(0, 0, 0, 0.4);
-  font-family: 'Roboto Mono', monospace;
-  font-size: 13px;
-  text-decoration: none;
-}
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@500&display=swap');
 
 * {
   margin: 0;
@@ -81,6 +67,9 @@
 }
 
 .buttons div {
+  user-select: none;
+  -webkit-user-select: none; /*Safari*/
+  -moz-user-select: none; /*Firefox*/
   display: flex;
   justify-content: center;
   align-items: center;
@@ -119,4 +108,18 @@
 
 .buttons .text {
   font-size: 20px;
+}
+
+/* footer styles */
+.footer {
+  margin-top: 30px;
+}
+
+.footer,
+.footer a,
+.footer hover {
+  color: rgba(0, 0, 0, 0.4);
+  font-family: 'Roboto Mono', monospace;
+  font-size: 13px;
+  text-decoration: none;
 }

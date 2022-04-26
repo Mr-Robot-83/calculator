@@ -81,7 +81,8 @@
   border-bottom: 3px solid rgba(0, 0, 0, 0.3);
 }
 
-.buttons div:active {
+.buttons div:active,
+.buttons .keyboard-down {
   border: none;
 }
 

@@ -6,6 +6,7 @@ const errorMessage = "MR.CALC SAYS NO!";
 //Event listeners for buttons on calc and keyboard
 buttons.forEach(button => button.addEventListener('click', buttonClick));
 window.addEventListener('keydown', buttonClick);
+window.addEventListener('keyup', buttonClick);
 
 //Intro animation
 animateText("WELCOME TO",subDisplay)
@@ -53,8 +54,24 @@ function buttonClick(e) {
     storeValues(input);
   };
   //Update the display after each keystroke
+  animateKeydown(e)
   checkResult();
   updateDisplay();
+};
+
+function animateKeydown(e){
+  let id = e.key;
+  if (e.key === 'Enter'){id = "="};
+  if (e.key === 'c'){id = "C"};
+  let keyPushed = document.getElementById(id);
+  if (!keyPushed) return;
+
+  if (e.type === 'keydown'){
+    keyPushed.classList.add('keyboard-down');
+  }
+  if (e.type === 'keyup'){
+    keyPushed.classList.remove('keyboard-down');
+  };
 };
 
 function covertInput(e) {
@@ -170,7 +187,6 @@ function checkResult() {
 };
 
 //from W3 Schools https://www.w3schools.com/howto/howto_js_typewriter.asp
-
 function animateText(message,display){
   let i = 0;
   let txt = message;
@@ -181,7 +197,7 @@ function animateText(message,display){
       display.innerHTML += txt.charAt(i);
       i++;
       setTimeout(typeWriter, speed);
-    }
-  }
+    };
+  };
   typeWriter()
-}
+};

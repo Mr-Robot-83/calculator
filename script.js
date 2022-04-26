@@ -61,22 +61,22 @@ function buttonClick(e) {
 
 function animateKeydown(e){
   let id = e.key;
-  if (e.key === 'Enter'){id = "="};
-  if (e.key === 'c'){id = "C"};
+  if (e.key === 'Enter') id = "=";
+  if (e.key === 'c') id = "C";
   let keyPushed = document.getElementById(id);
   if (!keyPushed) return;
 
-  if (e.type === 'keydown'){
+  if (e.type === 'keydown') {
     keyPushed.classList.add('keyboard-down');
-  }
-  if (e.type === 'keyup'){
+  };
+  if (e.type === 'keyup') {
     keyPushed.classList.remove('keyboard-down');
   };
 };
 
 function covertInput(e) {
   let input;
-  if (e.type === 'keydown'){
+  if (e.type === 'keydown') {
     input = e.key;
   } else {
     input = e.target.id;
@@ -88,15 +88,15 @@ function updateOperator(e) {
   let input = covertInput(e);
   //If there's already a first and second value calcualte the result
   //Save the result as the first value, and clear the second
-  if(operator && secondValue[0]){
+  if (operator && secondValue[0]) {
     calculateResult();  
-    if(result === errorMessage){return};
+    if (result === errorMessage) return;
     firstValue = Array.from(String(result));
     secondValue = [];
     result = null;
   }; 
   //Stops the operator being added if there's no first value
-  if(!firstValue[0]){return};
+  if (!firstValue[0]) return;
   //Update the operator variables, use the symbols on the calc
   //in the display if the user clicks the UI
   if (e.type === 'keydown') {
@@ -109,7 +109,7 @@ function updateOperator(e) {
 
 function backspace() {
   //If the sum is complete, clear everything (same as the C button)
-  if(result){clearMemory()};
+  if (result){clearMemory()};
   if (secondValue[0]) {
     secondValue.pop();
   } else if(operator) {
@@ -123,13 +123,13 @@ function backspace() {
 //Check to see if there's an operator stored
 //Update first value if not, otherwise update the second value
 function storeValues(value) {
-  if (result || result === 0){clearMemory()};
+  if (result || result === 0) clearMemory();
   if (!operator) {
-    if (value === "." && firstValue.find(decimal => decimal === ".")){return};
-    if (value === "." && !firstValue[0]){firstValue[0] = "0"};
+    if (value === "." && firstValue.find(decimal => decimal === ".")) return;
+    if (value === "." && !firstValue[0]) firstValue[0] = "0";
     firstValue.push(value);
     } else {
-    if (value === "." && secondValue.find(decimal => decimal === ".")){return};
+    if (value === "." && secondValue.find(decimal => decimal === ".")) return;
     if (value === "." && !secondValue[0]){secondValue[0] = "0"};
     secondValue.push(value); 
   };
@@ -145,11 +145,11 @@ function clearMemory() {
 };
 
 function calculateResult() {
-  if(firstValue[0] && secondValue[0]){
+  if (firstValue[0] && secondValue[0]) {
     let a = parseFloat(firstValue.join(""));
     let b = parseFloat(secondValue.join(""));
     let num = null;
-    switch(operator) {
+    switch (operator){
       case "+":
         num = a + b;
         break;
@@ -172,16 +172,16 @@ function calculateResult() {
 function updateDisplay(){
   let displayString = "";
   let symbol = "";
-  let equals = ""
-  if(result){equals = "\xa0="};
-  if(operatorSymbol){symbol = `\xa0${operatorSymbol}\xa0`};
+  let equals = "";
+  if (result) equals = "\xa0=";
+  if (operatorSymbol) symbol = `\xa0${operatorSymbol}\xa0`;
   displayString = firstValue.join("") + symbol + secondValue.join("") + equals;
   subDisplay.textContent = displayString;
   mainDisplay.textContent = result;
 };
 
 function checkResult() {
-  if(result === errorMessage || firstValue.join("") === errorMessage){
+  if (result === errorMessage || firstValue.join("") === errorMessage){
     result = errorMessage;
   };
 };

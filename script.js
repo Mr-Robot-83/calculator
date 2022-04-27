@@ -3,18 +3,16 @@ const subDisplay = document.querySelector(".sub-display");
 const buttons = document.querySelectorAll(".buttons div");
 const errorMessage = "MR.CALC SAYS NO!";
 
-//Event listeners for buttons on calc and keyboard
-buttons.forEach(button => button.addEventListener('click', buttonClick));
-
 //Intro animation
 animateText("WELCOME TO",subDisplay)
 setTimeout(animateText,1000,"MR.CALC", mainDisplay);
 
-//Add keyboard listeners after the intro animation is finished
-setTimeout(addKeyboardListeners,2000);
-function addKeyboardListeners() {
+//Add listeners after the intro animation is finished
+setTimeout(addListeners,1800);
+function addListeners() {
   window.addEventListener('keydown', buttonClick);
   window.addEventListener('keyup', buttonClick);
+  buttons.forEach(button => button.addEventListener('click', buttonClick));
 }
 
 

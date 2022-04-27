@@ -78,7 +78,7 @@
   border-radius: 5px;
   font-weight: 700;
   color: #292929;
-  border-bottom: 3px solid rgba(0, 0, 0, 0.3);
+  border-bottom: 4px solid rgba(0, 0, 0, 0.3);
 }
 
 .buttons div:active,

@@ -5,12 +5,18 @@ const errorMessage = "MR.CALC SAYS NO!";
 
 //Event listeners for buttons on calc and keyboard
 buttons.forEach(button => button.addEventListener('click', buttonClick));
-window.addEventListener('keydown', buttonClick);
-window.addEventListener('keyup', buttonClick);
 
 //Intro animation
 animateText("WELCOME TO",subDisplay)
 setTimeout(animateText,1000,"MR.CALC", mainDisplay);
+
+//Add keyboard listeners after the intro animation is finished
+setTimeout(addKeyboardListeners,2000);
+function addKeyboardListeners() {
+  window.addEventListener('keydown', buttonClick);
+  window.addEventListener('keyup', buttonClick);
+}
+
 
 //Didn't need to use arrays here but wanted to give it a go.
 let firstValue = [];
@@ -18,7 +24,7 @@ let secondValue = [];
 
 let result = null;
 let operator = null;
-let operatorSymbol = null;
+let operatorSymbol = null; //Only used for the display
 
 function buttonClick(e) {
   let input = covertInput(e);
